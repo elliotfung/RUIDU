@@ -1,0 +1,513 @@
+:root {
+  --primary: #00f0ff;
+  --secondary: #7928ca;
+  --dark-bg: #0a0e17;
+  --card-bg: #121a29;
+  --text-light: #e0e0e0;
+  --text-gray: #8a94a6;
+  --glow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+/* 桌面端优先的响应式调整 */
+@media (min-width: 1600px) {
+  .advantages-grid,
+  .products-grid,
+  .case-studies-grid {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .section h2 {
+    font-size: 2.2rem;
+  }
+
+  .app-container {
+    padding: 0 3vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .advantages-grid,
+  .products-grid,
+  .case-studies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .app-container {
+    padding: 0 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages-grid,
+  .products-grid,
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .app-container {
+    padding: 0 1vw;
+  }
+}
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+  font-size: 1.1rem;
+  animation: pulse-glow 3s infinite alternate;
+}
+
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  background-color: rgba(10, 14, 23, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+  padding: 0.5rem 0;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary);
+  text-shadow: var(--glow);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0a0e17 0%, #121a29 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 超宽屏优化 */
+@media (min-width: 1920px) {
+  .hero h1 {
+    font-size: 5rem;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    max-width: 800px;
+  }
+
+  .section h2 {
+    font-size: 3rem;
+  }
+
+  .advantage-card h3,
+  .product-card h4,
+  .case-card h4 {
+  font-size: 1.6rem;
+}
+
+@keyframes pulse-glow {
+  from {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.9), 0 0 30px rgba(0, 240, 255, 0.7), 0 0 45px rgba(0, 240, 255, 0.5);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+  .advantage-card p,
+  .product-card p,
+  .case-card p {
+    font-size: 1.1rem;
+  }
+}
+
+/* 中大屏幕优化 */
+@media (max-width: 1400px) and (min-width: 1200px) {
+  .section {
+    padding: 6rem 0;
+  }
+}
+
+/* 确保内容在超宽屏下不过度拉伸 */
+.advantages, .products {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* 产品卡片和案例卡片样式统一 */
+.product-card, .case-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover, .case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.product-image, .case-image {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  text-shadow: var(--glow);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: rgba(0, 240, 255, 0.1);
+  filter: blur(100px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  animation: pulse 4s infinite alternate;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff, var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: pulse-glow 2s infinite alternate;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--text-gray);
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: pulse-glow 3s infinite alternate;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn.primary {
+  background-color: var(--primary);
+  color: var(--dark-bg);
+  box-shadow: var(--glow);
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn.secondary:hover {
+  background-color: rgba(0, 240, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Section Styles */
+.section {
+  padding: 8rem 0;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+/* Advantages Section */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 产品展示网格样式 */
+.products-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.case-studies-title {
+  font-size: 1.8rem;
+  margin: 4rem 0 2rem;
+  text-align: center;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+}
+
+.product-card, .case-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-content, .case-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card p, .case-card p {
+  flex: 1;
+}
+
+.product-card button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.advantage-card {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.advantage-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary);
+}
+
+.advantage-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.advantage-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.advantage-card p {
+  color: var(--text-gray);
+}
+
+/* Products Section */
+.products {
+  background-color: #0f141f;
+}
+
+.placeholder-content {
+  text-align: center;
+  padding: 4rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px dashed rgba(0, 240, 255, 0.3);
+  color: var(--text-gray);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+  margin-top: 3rem;
+  color: var(--text-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
